@@ -70,7 +70,18 @@
 
             <div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
                 <a href="{{URL::to('/')}}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back To Shopping</a>
-                <a href="{{URL::to('/checkout')}}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Checkout</a>
+                <?php 
+                    $customer_id = Session::get('customer_id');
+                    $shipping_id = Session::get('shipping_id');
+                    if($customer_id !==NULL && $shipping_id !==NULL){ ?>
+                    <a href="{{URL::to('/payment')}}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Checkout</a>
+                    
+                <?php } else if($customer_id !==NULL && $shipping_id ==NULL) { ?>
+                    <a href="{{URL::to('/billing')}}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Checkout</a>
+                <?php } else { ?>
+                    <a href="{{URL::to('/checkout')}}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Checkout</a>
+                <?php } ?>
+                
                 
             </div>
             <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">

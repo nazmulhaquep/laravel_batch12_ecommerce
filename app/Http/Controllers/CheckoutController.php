@@ -55,11 +55,11 @@ class CheckoutController extends Controller
     {
         $customer_id=Session::get('customer_id');
         $customerInfo=DB::table('customer')
-                                        ->where('customer_id',$customer_id)
-                                        ->first();
+                        ->where('customer_id',$customer_id)
+                        ->first();
         
         return view('pages.billing')
-                            ->with('customer_info',$customerInfo);
+                    ->with('customer_info',$customerInfo);
     }
     public function updateBilling(Request $request)
     {
