@@ -134,7 +134,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{url('/manage-manufacturer')}}" class="nav-link">
+                                <a href="{{url('/manage-subcategory')}}" class="nav-link">
                                     <i class="icon icon-energy"></i> Manage Sub Category
                                 </a>
                             </li>
